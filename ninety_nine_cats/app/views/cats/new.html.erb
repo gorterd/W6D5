@@ -1,0 +1,48 @@
+<h3>Construct a New Cat</h3>
+
+<form action="<%= cats_url %>" method="POST">
+
+    <label for="name">Name: </label>
+    <input id="name" type="text" name="cat[name]">
+
+    <br>
+    
+    <label for="birth_date">Birthdate: </label>
+    <input id="birth_date" type="date" name="cat[birth_date]">
+
+    <br>
+
+    <label for="color">Color: </label>
+    <select id="color" name="cat[color]">
+        <option disabled selected>--Please Select--</option>
+        <% Cat::VALID_COLORS.each do |color| %>
+        <option value="<%= color %>"><%= color %></option>
+        <% end %>
+    </select>
+    
+    <br>
+
+    <!--  <label for="sex">Sex: </label>
+    <select id="sex" name="cat[sex]">
+        <option disabled selected >--Please Select--</option>
+         <% # Cat::VALID_SEXES.each do |sex| %>
+        <option value="<%#= sex %>"><%#= sex %></option>
+        <%# end %>
+    </select> -->
+
+    <label for="M"> Male </label>
+    <input type="radio" name="cat[sex]" id="M" value="M">
+    
+    <label for="F"> Female </label>
+    <input type="radio" name="cat[sex]" id="F" value="F">
+
+    <br>
+
+    <label for="description">Description: </label>
+    <textarea  id="description" name="cat[description]"></textarea>
+
+    <br>
+
+
+    <input type="submit" value="Create your Kitty!">
+</form>
